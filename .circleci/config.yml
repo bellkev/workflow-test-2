@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  one:
+    docker:
+      - image: "debian:jessie"
+    steps:
+      - run: echo 1
+  two:
+    docker:
+      - image: "debian:jessie"
+    steps:
+      - run: echo 2
+workflows:
+  version: 2
+  one_and_two:
+    jobs:
+      - one
+      - two
